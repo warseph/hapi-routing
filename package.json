@@ -1,0 +1,40 @@
+{
+  "name": "hapi-routing",
+  "version": "1.0.0",
+  "description": "Simple route and controller management for hapijs",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive",
+    "pretest": "npm run eslint",
+    "eslint": "eslint '*/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/warseph/hapi-routing.git"
+  },
+  "keywords": [
+    "hapi",
+    "route",
+    "controller",
+    "plugin"
+  ],
+  "author": "Ezequiel Rabinovich <erabinovich@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/warseph/hapi-routing/issues"
+  },
+  "homepage": "https://github.com/warseph/hapi-routing#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.9.2",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2",
+    "hapi": "^13.4.1",
+    "mocha": "^2.5.3",
+    "request": "^2.72.0",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0"
+  }
+}
