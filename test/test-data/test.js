@@ -1,9 +1,7 @@
 'use strict';
 
-const Controller = require('../../controller');
-
-module.exports = class TestController extends Controller {
-  index() {
-    this.reply(this.request.params.test === 'test' ? 'ok!' : 'wrong param!');
+module.exports = class TestController {
+  index(request, reply) {
+    reply(request.params.test === 'test' ? 'ok!' : 'wrong param!');
   }
 };

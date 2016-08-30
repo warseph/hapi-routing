@@ -31,14 +31,12 @@ hapi.register(hapiRouting(routes));
 
 // additional hapi code, and hapi.start call
 ```
-Controllers must inherit from `'hapi-routing/controller'`
+
 ```js
 // controllers/first
-const Controller = require('hapi-routing/controller');
-
-module.exports = class FirstController extends Controller {
-  index() {
-    this.reply('OK!');
+module.exports = class FirstController {
+  index(request, reply) {
+    reply('OK!');
   }
 }
 ```
@@ -69,16 +67,9 @@ Defines a route that replies to more than one method
 - `method` a string with the method name
 
 ## `Controller`
-This class has two properties: `request`, `reply` which correspond to hapi's
-objects.
-The controllers are instantiated each time a new request is received, so using
-`this` in this context will only reference the controller for the current
-request.
-
-In case you need to extend the constructor, `Controller`'s constructor will
-receive `request`, `reply`, so make sure to add those two parameters first,
-and to pass them to `super`.
-
+It's a simple class that must have defined a method for every action in your
+routing table. Each action receives hapi's `request` and `reply` objects as
+parameters.
 # Validation
 If you want to add hapi validation to an action, you need to create a static
 method in your controller called actionNameValidation that will receive a method
@@ -86,11 +77,10 @@ method in your controller called actionNameValidation that will receive a method
 ```js
 // controllers/third
 const Joi = require('joi');
-const Controller = require('hapi-routing/controller');
 
-module.exports = class ThirdController extends Controller {
-  anotherAction() {
-    this.reply('OK!');
+module.exports = class ThirdController {
+  anotherAction(request, reply) {
+    reply('OK!');
   }
 
   static anotherActionValidation(method) {

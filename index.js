@@ -1,6 +1,5 @@
 'use strict';
 
-
 const RouteTable = require('./route/table');
 const pkg = require('./package.json');
 

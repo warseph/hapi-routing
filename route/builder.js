@@ -16,8 +16,8 @@ module.exports = class RouteBuilder {
       method,
       path: route.path,
       handler(request, reply) {
-        const controller = new Controller(request, reply);
-        return controller[action]();
+        const controller = new Controller();
+        return controller[action](request, reply);
       },
       config: {}
     };
